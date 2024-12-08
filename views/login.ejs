@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <form action="" method="post">
+      <% if(message.length > 0) { %>
+        <span style="color: red;"><%= message %></span>
+      <% } %>
+      <label for="email">
+        <span>Email: </span>
+        <input type="email" name="username" id="email" placeholder="Enter email address" >
+      </label>
+      <label for="password">
+        <span>Password: </span>
+        <input type="password" name="password" id="password" placeholder="Enter password" >
+      </label>
+      <button>Submit</button>
+    </form> 
+  </body>
+</html>
