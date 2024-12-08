@@ -19,3 +19,34 @@ model Session {
   data      String
   expiresAt DateTime
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String   @unique
+  password  String
+  files     File[]
+  folders   Folder[]
+}
+
+model File {
+  id        Int      @id @default(autoincrement())
+  fileType  String
+  filePath  String
+  createdAt DateTime @default(now())
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+  Folder    Folder?  @relation(fields: [folderId], references: [id])
+  folderId  Int?
+}
+
+model Folder {
+  id           Int      @id @default(autoincrement())
+  files        File[]
+  User         User?    @relation(fields: [userId], references: [id])
+  userId       Int?
+  subfolders   Folder[] @relation("Subfolder")
+  parentFolder Folder?  @relation("Subfolder", fields: [folderId], references: [id])
+  folderId     Int?
+}
