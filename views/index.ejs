@@ -7,6 +7,19 @@
     <link href="/css/style.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Welcome to Uploadify</h1>
+    <%- include("partials/navbar") %>
+    <div class="flex gap-8 justify-center items-center p-16">
+      <div class="flex flex-col gap-8 max-w-1/2">
+        <h1 class="text-5xl">Fast, Secure and reliable file uploads</h1>
+        <p class="text-lg text-gray">
+          Welcome to Uploadify, the ultimate solution for fast, secure, and hassle-free file management. Whether you need to store important documents, organize media files, or share links with ease, our app is built to streamline your workflow. Experience top-notch security, lightning-fast uploads, and an intuitive interface designed with you in mind.
+        </p>
+        <div>
+          <button class="btn btn-primary">Start Uploading</button>
+        </div>
+      </div>
+      <img src="/images/upload.svg" alt="file image">
+    </div>
+    <%- include("partials/footer") %>
   </body>
 </html>
