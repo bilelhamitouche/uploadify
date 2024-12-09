@@ -36,15 +36,9 @@ async function insertUser(firstName, lastName, email, password) {
   });
 }
 
-async function getFiles() {
-  const files = await prisma.file.findMany();
-  return files;
-}
-
 module.exports = {
   getUserByEmail,
   getUserById,
   getUsers,
   insertUser,
-  getFiles,
 };
