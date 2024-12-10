@@ -16,6 +16,8 @@ html {
 }
 
 body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   height: 100svh;
 }
 
@@ -31,4 +33,30 @@ p {
 
 a {
   text-decoration: none;
+}
+
+a > h1 {
+  color: black;
+}
+
+main {
+  height: 100%;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 2px solid #bbb;
+  outline: none;
+  width: 300px;
+}
+
+input:focus {
+  border-color: blueviolet;
 }

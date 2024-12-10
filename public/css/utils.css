@@ -68,6 +68,14 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.gap-2 {
+  gap: .5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
 .gap-8 {
   gap: 2rem;
 }
