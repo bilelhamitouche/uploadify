@@ -8,19 +8,22 @@
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <form action="" method="post">
-      <% if(message.length > 0) { %>
-        <span style="color: red;"><%= message %></span>
-      <% } %>
-      <label for="email">
-        <span>Email: </span>
-        <input type="email" name="username" id="email" placeholder="Enter email address" >
-      </label>
-      <label for="password">
-        <span>Password: </span>
-        <input type="password" name="password" id="password" placeholder="Enter password" >
-      </label>
-      <button>Submit</button>
-    </form> 
+    <main class="flex justify-center items-center">
+      <form action="" method="post" class="flex flex-col gap-4">
+        <% if(message.length > 0) { %>
+          <span style="color: red;"><%= message %></span>
+        <% } %>
+        <label for="email">
+          <span>Email </span>
+          <input type="email" name="username" id="email" placeholder="Enter email address" >
+        </label>
+        <label for="password">
+          <span>Password </span>
+          <input type="password" name="password" id="password" placeholder="Enter password" >
+        </label>
+        <button class="btn btn-primary">Submit</button>
+      </form> 
+    </main>
+    <%- include("partials/footer") %>
   </body>
 </html>
