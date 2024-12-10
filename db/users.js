@@ -32,6 +32,11 @@ async function insertUser(firstName, lastName, email, password) {
       lastName: lastName,
       email: email,
       password: password,
+      folders: {
+        create: {
+          name: "root",
+        },
+      },
     },
   });
 }
