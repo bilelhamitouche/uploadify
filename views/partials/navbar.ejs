@@ -2,8 +2,10 @@
   <a href="/">
     <h1>Uploadify</h1>
   </a>
-  <div class="flex gap-8 items-center">
-    <a href="/users/login" class="btn btn-primary">Login</a>
-    <a href="/users/signup" class="btn btn-primary">Signup</a>
-  </div>
+  <% if(index) { %>
+    <div class="flex gap-8 items-center">
+      <a href="/users/login" class="btn btn-primary">Login</a>
+      <a href="/users/signup" class="btn btn-primary">Signup</a>
+    </div>
+  <% } %>
 </nav>

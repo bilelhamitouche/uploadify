@@ -7,11 +7,11 @@
     <link href="/css/style.css" rel="stylesheet">
   </head>
   <body>
-    <%- include("partials/navbar") %>
+    <%- include("partials/navbar", { index: false }) %>
     <main class="flex justify-center items-center">
       <form action="" method="post" class="flex flex-col gap-4">
         <% if(message.length > 0) { %>
-          <span style="color: red;"><%= message %></span>
+          <span class="error"><%= message %></span>
         <% } %>
         <label for="email">
           <span>Email </span>
@@ -22,6 +22,10 @@
           <input type="password" name="password" id="password" placeholder="Enter password" >
         </label>
         <button class="btn btn-primary">Submit</button>
+        <div class="flex justify-between items-center">
+          <p>Don't have an account?</p>
+          <a href="/users/signup">Signup</a>
+        </div>
       </form> 
     </main>
     <%- include("partials/footer") %>
