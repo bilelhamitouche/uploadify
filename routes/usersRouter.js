@@ -4,11 +4,13 @@ const {
   loginUserGet,
   signupUserGet,
   signupUserPost,
+  logoutUser,
 } = require("../controllers/usersController");
 
 const usersRouter = express.Router();
 
 usersRouter.get("/login", loginUserGet);
+usersRouter.get("/logout", logoutUser);
 usersRouter.get("/signup", signupUserGet);
 usersRouter.post(
   "/login",

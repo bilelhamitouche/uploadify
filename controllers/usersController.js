@@ -41,7 +41,17 @@ const validateUser = [
 ];
 
 function loginUserGet(req, res) {
-  res.render("login", { message: req.flash("error") });
+  res.render("login", { message: req.flash("error"), isAuthenticated: false });
+}
+
+function logoutUser(req, res, next) {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.redirect("/users/login");
+    }
+  });
 }
 
 function signupUserGet(req, res) {
@@ -73,6 +83,7 @@ const signupUserPost = [
 
 module.exports = {
   loginUserGet,
+  logoutUser,
   signupUserGet,
   signupUserPost,
 };
