@@ -13,7 +13,7 @@ usersRouter.get("/signup", signupUserGet);
 usersRouter.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/root/folders",
     failureRedirect: "/users/login",
     failureFlash: true,
   }),
