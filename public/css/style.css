@@ -64,3 +64,7 @@ input {
 input:focus {
   border-color: blueviolet;
 }
+
+ul {
+  list-style: none;
+}
