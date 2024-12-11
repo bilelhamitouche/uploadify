@@ -1,4 +1,5 @@
-<nav class="flex justify-between items-center p-8">
+<script src="/js/script.js" defer></script>
+<nav class="flex relative justify-between items-center p-8">
   <a href="/">
     <h1>Uploadify</h1>
   </a>
@@ -10,7 +11,13 @@
   <% } %>
   <% if(isAuthenticated) { %>
     <div class="flex gap-8 items-center">
-      <button class="avatar-btn"><%= user.firstName[0] %><%= user.lastName[0] %></button>
+      <button id="avatar-btn" class="avatar-btn"><%= user.firstName[0] %><%= user.lastName[0] %></button>
+    </div>
+    <div id="avatar-menu" class="hidden avatar-menu">
+      <ul class="flex flex-col p-2">
+        <li><%= user.email %></li>
+        <a href="/users/logout" class="logout">Logout</a>
+      </ul>
     </div>
   <% } %>
 </nav>
