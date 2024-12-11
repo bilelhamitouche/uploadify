@@ -8,4 +8,9 @@
       <a href="/users/signup" class="btn btn-primary">Signup</a>
     </div>
   <% } %>
+  <% if(isAuthenticated) { %>
+    <div class="flex gap-8 items-center">
+      <button class="avatar-btn"><%= user.firstName[0] %><%= user.lastName[0] %></button>
+    </div>
+  <% } %>
 </nav>
