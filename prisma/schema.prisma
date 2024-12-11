@@ -52,4 +52,6 @@ model Folder {
   subfolders   Folder[] @relation("Subfolder")
   parentFolder Folder?  @relation("Subfolder", fields: [folderId], references: [id])
   folderId     Int?
+
+  @@unique([name, userId])
 }
