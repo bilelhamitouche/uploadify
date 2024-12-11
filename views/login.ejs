@@ -7,7 +7,7 @@
     <link href="/css/style.css" rel="stylesheet">
   </head>
   <body>
-    <%- include("partials/navbar", { index: false }) %>
+    <%- include("partials/navbar", { index: false, isAuthenticated: isAuthenticated }) %>
     <main class="flex justify-center items-center">
       <form action="" method="post" class="flex flex-col gap-4">
         <% if(message.length > 0) { %>
