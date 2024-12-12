@@ -21,6 +21,10 @@ body {
   height: 100svh;
 }
 
+nav {
+  box-shadow: 2px 2px 2px #ccc;
+}
+
 img {
   object-fit: contain;
   width: 100%;
