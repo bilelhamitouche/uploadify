@@ -4,7 +4,8 @@ async function displayRootFolder(req, res) {
   const rootFolder = await getRootFolder(req.user.id);
   res.render("userFolder", {
     user: req.user,
-    rootFolder: rootFolder,
+    folders: rootFolder.subfolders,
+    files: rootFolder.files,
     isAuthenticated: req.isAuthenticated(),
   });
 }
