@@ -8,6 +8,10 @@ async function getRootFolder(userId) {
         userId: userId,
       },
     },
+    include: {
+      subfolders: true,
+      files: true,
+    },
   });
   return rootFolder;
 }
