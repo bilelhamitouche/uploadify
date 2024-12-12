@@ -9,7 +9,38 @@
   <body>
     <%- include("partials/navbar", { index: false, isAuthenticated: isAuthenticated }) %>
     <main class="p-8">
-      <h1>Bilel Hamitouche's Drive</h1> 
+      <h2 class="text-lg">My files</h2>
+      <table class="files">
+        <thead>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Size</th>
+        </thead>
+        <tbody>
+          <% folders.forEach((folder) => { %>
+            <tr>
+              <td><%= folder.name %></td>
+            </tr>
+            <tr>
+              <td>Folder</td>
+            </tr>
+            <tr>
+              <td>-</td>
+            </tr>
+          <% }) %>
+          <% files.forEach((files) => { %>
+            <tr>
+              <td><%= file.name %></td>
+            </tr>
+            <tr>
+              <td>file</td>
+            </tr>
+            <tr>
+              <td>-</td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
     </main>
     <%- include("partials/footer") %>
   </body>
