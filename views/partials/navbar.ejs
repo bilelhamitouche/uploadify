@@ -1,6 +1,6 @@
 <script src="/js/script.js" defer></script>
 <nav class="flex relative justify-between items-center p-8">
-  <a href="/">
+  <a href="<%= isAuthenticated ? '/root/folders' : '/' %>">
     <h1>Uploadify</h1>
   </a>
   <% if(index) { %>
