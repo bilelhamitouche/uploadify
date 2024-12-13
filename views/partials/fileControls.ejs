@@ -1,0 +1,30 @@
+<div class="flex justify-between items-center">
+  <h2 class="text-xl">My files</h2>
+  <div class="flex gap-2">
+    <button class="btn btn-primary" id="upload-file-modal-btn">Upload file</button>
+    <button class="btn btn-primary" id="create-folder-modal-btn">Create folder</button>
+  </div>
+</div>
+
+<dialog class="modal" id="upload-file-modal">
+  <form action="/root/folders/<%= folderId%>/upload" method="post" class="flex flex-col gap-4 p-4">
+    <label for="file" class="flex flex-col gap-2">
+      <span>Upload</span>
+      <input type="file" id="file" name="file">
+    </label>
+    <button type="submit" class="btn btn-primary" id="submit-file-modal-btn">Upload</button>
+    <button type="button" class="btn btn-urgent" id="close-file-modal-btn">Cancel</button>
+  </form>
+</dialog>
+
+
+<dialog class="modal" id="create-folder-modal">
+  <form action="/root/folders/<%= folderId %>/create" method="post" class="flex flex-col gap-4 p-4">
+    <label for="folder" class="flex flex-col gap-2">
+      <span>Name</span>
+      <input type="text" id="folder" name="folder">
+    </label>
+    <button type="submit" class="btn btn-primary" id="submit-folder-modal-btn">Create</button>
+    <button type="button" class="btn btn-urgent" id="close-folder-modal-btn">Cancel</button>
+  </form>
+</dialog>
