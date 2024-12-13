@@ -2,6 +2,10 @@
   font-size: 1rem;
 }
 
+.text-xl {
+  font-size: 1.2rem;
+}
+
 .text-5xl {
   font-size: 3rem;
 }
@@ -43,6 +47,14 @@
 
 .btn-primary:hover {
   background-color: #222222;
+}
+
+.btn-urgent {
+  background-color: #ef4444;
+}
+
+.btn-urgent:hover {
+  background-color: #dc2626;
 }
 
 .flex {
@@ -145,4 +157,71 @@
 
 .logout {
   color: red;
+}
+
+.files {
+  border-collapse: collapse;
+  min-width: 400px;
+  text-align: left;
+}
+
+th {
+  padding: 0.8rem 1rem;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+
+.max-w-content {
+  max-width: fit-content;
+}
+
+.modal {
+  border: none;
+  border-radius: 5px;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: 0.5s slideIn;
+}
+
+.modal.closing {
+  animation: slideOut 0.5s;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
 }
