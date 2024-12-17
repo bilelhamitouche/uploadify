@@ -19,23 +19,15 @@
         <tbody>
           <% folders.forEach((folder) => { %>
             <tr>
-              <td><%= folder.name %></td>
-            </tr>
-            <tr>
+              <td><a href="/root/folders/<%= folder.id %>"><%= folder.name %></a></td>
               <td>Folder</td>
-            </tr>
-            <tr>
               <td>-</td>
             </tr>
           <% }) %>
           <% files.forEach((files) => { %>
             <tr>
               <td><%= file.name %></td>
-            </tr>
-            <tr>
               <td>file</td>
-            </tr>
-            <tr>
               <td>-</td>
             </tr>
           <% }) %>
