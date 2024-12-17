@@ -76,3 +76,27 @@ input:focus {
 ul {
   list-style: none;
 }
+
+th {
+  padding: 0.8rem 1rem;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+tr:nth-of-type(even) {
+  background-color: #fbfbfb;
+}
+
+td {
+  padding: 0.8rem 1rem;
+  padding-left: 1rem;
+  text-align: left;
+}
+
+td > a {
+  color: black;
+}
+
+td > a:hover {
+  text-decoration: underline;
+}

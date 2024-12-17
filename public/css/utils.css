@@ -165,12 +165,6 @@
   text-align: left;
 }
 
-th {
-  padding: 0.8rem 1rem;
-  background-color: #0a0a0a;
-  color: white;
-}
-
 .mr-auto {
   margin-right: auto;
 }
@@ -224,4 +218,8 @@ th {
     opacity: 0;
     transform: translate(-50%, -100%);
   }
+}
+
+.back-link {
+  color: blue;
 }
