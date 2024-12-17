@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My drive</title>
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <%- include("partials/navbar", { index: false, isAuthenticated: isAuthenticated }) %>
+    <main class="flex flex-col gap-8 p-8">
+      <%- include("partials/fileControls", { folderId: folderId }) %>
+      <table class="files">
+        <thead>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Size</th>
+        </thead>
+        <tbody>
+            <tr>
+              <td><a href="<%= previousPage %>" class="back-link">. .</a></td>
+            </tr>
+          <% folders.forEach((folder) => { %>
+            <tr>
+              <td><a href="/root/folders/<%= folder.id %>"><%= folder.name %></a></td>
+              <td>Folder</td>
+              <td>-</td>
+            </tr>
+          <% }) %>
+          <% files.forEach((files) => { %>
+            <tr>
+              <td><%= file.name %></td>
+              <td>file</td>
+              <td>-</td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </main>
+    <%- include("partials/footer") %>
+  </body>
+</html>
