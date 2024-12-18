@@ -2,6 +2,7 @@ const {
   getRootFolder,
   insertFolder,
   getCurrentFolder,
+  getFolderById,
 } = require("../db/folders");
 
 async function displayRootFolder(req, res) {
@@ -31,13 +32,18 @@ async function displayCurrentFolder(req, res) {
     req.user.id,
     req.params.folderId,
   );
+  const rootFolder = await getRootFolder(req.user.id);
+  const parentFolder = await getFolderById(parseInt(currentFolder.folderId));
   res.render("currentFolder", {
     user: req.user,
     folderId: currentFolder.id,
     folders: currentFolder.subfolders,
     files: currentFolder.files,
     isAuthenticated: req.isAuthenticated(),
-    previousPage: req.get("Referer"),
+    previousPage:
+      parentFolder.id === rootFolder.id
+        ? "/root/folders"
+        : currentFolder.folderId,
   });
 }
 
