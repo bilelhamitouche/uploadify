@@ -27,11 +27,11 @@
               <td>-</td>
             </tr>
           <% }) %>
-          <% files.forEach((files) => { %>
+          <% files.forEach((file) => { %>
             <tr>
               <td><%= file.name %></td>
-              <td>file</td>
-              <td>-</td>
+              <td><%= file.fileType %></td>
+              <td><%= file.fileSize %></td>
             </tr>
           <% }) %>
         </tbody>
