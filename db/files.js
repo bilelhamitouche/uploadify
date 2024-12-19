@@ -37,6 +37,21 @@ async function insertFile(
   }
 }
 
+async function deleteFile(fileId) {
+  try {
+    const file = await prisma.file.delete({
+      where: {
+        id: fileId,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
 module.exports = {
   insertFile,
+  deleteFile,
 };
