@@ -37,9 +37,9 @@ model File {
   filePath  String
   fileSize  Float
   createdAt DateTime @default(now())
-  User      User     @relation(fields: [userId], references: [id])
+  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    Int
-  Folder    Folder   @relation(fields: [folderId], references: [id])
+  Folder    Folder   @relation(fields: [folderId], references: [id], onDelete: Cascade)
   folderId  Int
 }
 
@@ -47,10 +47,10 @@ model Folder {
   id           Int      @id @default(autoincrement())
   name         String
   files        File[]
-  User         User     @relation(fields: [userId], references: [id])
+  User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId       Int
   subfolders   Folder[] @relation("Subfolder")
-  parentFolder Folder?  @relation("Subfolder", fields: [folderId], references: [id])
+  parentFolder Folder?  @relation("Subfolder", fields: [folderId], references: [id], onDelete: Cascade)
   folderId     Int?
 
   @@unique([name, userId])
