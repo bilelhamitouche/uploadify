@@ -3,6 +3,7 @@ const {
   insertFolder,
   getCurrentFolder,
   getFolderById,
+  deleteFolder,
 } = require("../db/folders");
 
 async function displayRootFolder(req, res) {
@@ -47,8 +48,18 @@ async function displayCurrentFolder(req, res) {
   });
 }
 
+async function deleteFolderPost(req, res) {
+  const currentFolder = await getCurrentFolder(
+    req.user.id,
+    req.params.folderId,
+  );
+  await deleteFolder(currentFolder.id);
+  res.redirect(`/root/folders/${currentFolder.folderId}`);
+}
+
 module.exports = {
   displayRootFolder,
   displayCurrentFolder,
   createFolder,
+  deleteFolderPost,
 };
