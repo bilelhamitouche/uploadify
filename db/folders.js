@@ -39,7 +39,6 @@ async function getFolderById(id) {
 
 async function insertFolder(name, parentFolderId, userId) {
   const parentFolder = await getFolderById(parseInt(parentFolderId));
-  console.log(parentFolder);
   try {
     const folder = await prisma.folder.create({
       data: {
@@ -89,9 +88,24 @@ async function getCurrentFolder(userId, folderId) {
   }
 }
 
+async function deleteFolder(folderId) {
+  try {
+    await prisma.folder.delete({
+      where: {
+        id: folderId,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
 module.exports = {
   getRootFolder,
   getCurrentFolder,
   getFolderById,
   insertFolder,
+  deleteFolder,
 };
