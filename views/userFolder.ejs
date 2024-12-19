@@ -37,7 +37,7 @@
               <td><%= file.fileType %></td>
               <td><%= file.fileSize %></td>
               <td>
-                <form method="post" action="/root/folders/<%= file.id %>/delete" class="flex gap-4 justify-center max-w-full">
+                <form method="post" action="/root/folders/<%= file.folderId %>/<%= file.id %>/delete" class="flex gap-4 justify-center max-w-full">
                   <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
                 </form>
               </td>
