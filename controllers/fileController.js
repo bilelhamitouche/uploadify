@@ -1,5 +1,4 @@
-const { insertFile } = require("../db/files");
-const path = require("path");
+const { insertFile, deleteFile } = require("../db/files");
 const multer = require("multer");
 const { getFolderById } = require("../db/folders");
 const upload = multer({ dest: "uploads/" });
@@ -8,7 +7,6 @@ const uploadFile = [
   upload.single("file"),
   async (req, res) => {
     const file = req.file;
-    console.log(file);
     if (req.params.folderId === "root") {
       await insertFile(
         file.originalname,
@@ -34,6 +32,13 @@ const uploadFile = [
   },
 ];
 
+async function deleteFilePost(req, res) {
+  const { fileId, folderId } = req.params;
+  await deleteFile(parseInt(fileId));
+  res.redirect(`/root/folders/${folderId}`);
+}
+
 module.exports = {
   uploadFile,
+  deleteFilePost,
 };
