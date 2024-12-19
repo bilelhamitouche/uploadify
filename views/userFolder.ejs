@@ -1,50 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My drive</title>
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  </head>
+  <%- include("partials/head") %>
   <body>
     <%- include("partials/navbar", { index: false, isAuthenticated: isAuthenticated }) %>
     <main class="flex flex-col gap-8 p-8">
       <%- include("partials/fileControls", { folderId: "root" }) %>
-      <table class="files">
-        <thead>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Size</th>
-          <th></th>
-        </thead>
-        <tbody>
-          <% folders.forEach((folder) => { %>
-            <tr>
-              <td><a href="/root/folders/<%= folder.id %>"><%= folder.name %></a></td>
-              <td>Folder</td>
-              <td>-</td>
-              <td>
-                <form method="post" action="/root/folders/<%= folder.id %>/delete" class="flex gap-4 justify-center max-w-full">
-                  <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
-                </form>
-              </td>
-            </tr>
-          <% }) %>
-          <% files.forEach((file) => { %>
-            <tr>
-              <td><%= file.name %></td>
-              <td><%= file.fileType %></td>
-              <td><%= file.fileSize %></td>
-              <td>
-                <form method="post" action="/root/folders/<%= file.folderId %>/<%= file.id %>/delete" class="flex gap-4 justify-center max-w-full">
-                  <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
-                </form>
-              </td>
-            </tr>
-          <% }) %>
-        </tbody>
-      </table>
+      <%- include("partials/table", { folders: folders, files: files, folderId: "root" }) %>
     </main>
     <%- include("partials/footer") %>
   </body>

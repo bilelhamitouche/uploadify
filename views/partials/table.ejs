@@ -1,0 +1,39 @@
+<table class="files">
+  <thead>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Size</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% if (folderId !== "root") { %>
+      <tr>
+        <td><a href="<%= previousPage %>" class="back-link">. .</a></td>
+      </tr>
+    <% } %>
+    <% folders.forEach((folder) => { %>
+      <tr>
+        <td><a href="/root/folders/<%= folder.id %>"><%= folder.name %></a></td>
+        <td>Folder</td>
+        <td>-</td>
+        <td>
+          <form method="post" action="/root/folders/<%= folder.id %>/delete" class="flex gap-4 justify-center max-w-full">
+            <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+    <% files.forEach((file) => { %>
+      <tr>
+        <td><%= file.name %></td>
+        <td><%= file.fileType %></td>
+        <td><%= file.fileSize %></td>
+        <td>
+          <form method="post" action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/delete" class="flex gap-4 justify-center max-w-full">
+            <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
