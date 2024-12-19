@@ -78,9 +78,16 @@ ul {
 }
 
 th {
+  display: grid;
+  grid-template-columns: 1fr 10rem 10rem 10rem;
   padding: 0.8rem 1rem;
   background-color: #0a0a0a;
   color: white;
+}
+
+tr {
+  display: grid;
+  grid-template-columns: 1fr 10rem 10rem 10rem;
 }
 
 tr:nth-of-type(even) {

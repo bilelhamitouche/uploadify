@@ -181,6 +181,10 @@
   max-width: fit-content;
 }
 
+.max-w-full {
+  max-width: 100%;
+}
+
 .modal {
   border: none;
   border-radius: 5px;
@@ -222,4 +226,16 @@
 
 .back-link {
   color: blue;
+}
+
+.delete-btn {
+  all: unset;
+  cursor: pointer;
+}
+
+.material-icons {
+  color: #ef4444;
+}
+.delete-btn:hover .material-icons {
+  color: #dc2626;
 }
