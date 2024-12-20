@@ -17,9 +17,14 @@
         <td>Folder</td>
         <td>-</td>
         <td>
-          <form method="post" action="/root/folders/<%= folder.id %>/delete" class="flex gap-4 justify-center max-w-full">
-            <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
-          </form>
+          <div class="flex gap-4 justify-center">
+            <form class="max-w-content">
+              <button type="button" class="update-btn"><i class="material-icons">description</i></button>
+            </form>
+            <form method="post" action="/root/folders/<%= folder.id %>/delete" class="flex gap-4 justify-end max-w-content">
+              <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
+            </form>
+          </div>
         </td>
       </tr>
     <% }) %>
@@ -27,11 +32,19 @@
       <tr>
         <td><%= file.name %></td>
         <td><%= file.fileType %></td>
-        <td><%= file.fileSize %></td>
+        <td><%= file.fileSize > 1000 ? Math.round(file.fileSize / 1000) : file.fileSize %>K</td>
         <td>
-          <form method="post" action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/delete" class="flex gap-4 justify-center max-w-full">
-            <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
-          </form>
+          <div class="flex gap-4 justify-center items-center">
+            <form action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/download" class="max-w-content">
+              <button type="submit" class="download-btn"><i class="material-icons">download</i></button>
+            </form>
+            <form action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/rename" class="max-w-content">
+              <button type="submit" class="update-btn"><i class="material-icons">description</i></button>
+            </form>
+            <form method="post" action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/delete" class="max-w-content">
+              <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
+            </form>
+          </div>
         </td>
       </tr>
     <% }) %>
