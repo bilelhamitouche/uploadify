@@ -18,18 +18,18 @@
         <td>-</td>
         <td>
           <div class="flex gap-4 justify-center">
-            <button type="button" id="rename-folder-btn" class="update-btn"><i class="material-icons">description</i></button>
+            <button type="button" data-id="<%= folder.id %>" id="rename-folder-btn" class="update-btn" data-modal-id="modal-<%= folder.id %>"><i class="material-icons">description</i></button>
             <form method="post" action="/root/folders/<%= folder.id %>/delete" class="flex gap-4 justify-end max-w-content">
               <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
             </form>
-            <dialog class="modal" id="rename-folder-modal">
+            <dialog class="modal" id="modal-<%= folder.id %>">
               <form action="/root/folders/<%= folder.id %>/rename" method="post" class="flex flex-col gap-4 p-4">
                 <label for="folderName" class="flex flex-col gap-2">
                   <span>Rename</span>
                   <input type="text" id="folderName" name="folderName">
                 </label>
                 <button type="submit" class="btn btn-primary" id="submit-folder-rename-modal-btn">Rename</button>
-                <button type="button" class="btn btn-urgent" id="close-folder-rename-modal-btn">Cancel</button>
+                <button type="button" class="btn btn-urgent" id="close-folder-rename-modal-btn" data-modal-id="modal-<%= folder.id %>">Cancel</button>
               </form>
             </dialog>
           </div>
@@ -46,12 +46,20 @@
             <form action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/download" class="max-w-content">
               <button type="submit" class="download-btn"><i class="material-icons">download</i></button>
             </form>
-            <form action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/rename" class="max-w-content">
-              <button type="submit" class="update-btn"><i class="material-icons">description</i></button>
-            </form>
+            <button type="submit" id="rename-file-btn" class="update-btn" data-id="<%= file.id %>" data-modal-id="modal-<%= file.id %>"><i class="material-icons">description</i></button>
             <form method="post" action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/delete" class="max-w-content">
               <button type="submit" class="delete-btn"><i class="material-icons">delete</i></button>
             </form>
+            <dialog class="modal" id="modal-<%= file.id %>">
+              <form action="/root/folders/<%= file.folderId %>/files/<%= file.id %>/rename" method="post" class="flex flex-col gap-4 p-4">
+                <label for="fileName" class="flex flex-col gap-2">
+                  <span>Rename</span>
+                  <input type="text" id="fileName" name="fileName">
+                </label>
+                <button type="submit" class="btn btn-primary" id="submit-file-rename-modal-btn">Rename</button>
+                <button type="button" class="btn btn-urgent" id="close-file-rename-modal-btn" data-modal-id="modal-<%= file.id %>">Cancel</button>
+              </form>
+            </dialog>
           </div>
         </td>
       </tr>
