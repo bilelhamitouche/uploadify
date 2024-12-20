@@ -73,6 +73,10 @@
   justify-content: center;
 }
 
+.justify-end {
+  justify-content: end;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -232,10 +236,16 @@
   all: unset;
   cursor: pointer;
 }
+.download-btn,
+.update-btn {
+  all: unset;
+  cursor: pointer;
+}
 
-.material-icons {
+.delete-btn .material-icons {
   color: #ef4444;
 }
+
 .delete-btn:hover .material-icons {
   color: #dc2626;
 }
