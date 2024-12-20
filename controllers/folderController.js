@@ -4,6 +4,7 @@ const {
   getCurrentFolder,
   getFolderById,
   deleteFolder,
+  renameFolder,
 } = require("../db/folders");
 
 async function displayRootFolder(req, res) {
@@ -62,9 +63,23 @@ async function deleteFolderPost(req, res) {
   }
 }
 
+async function renameFolderPost(req, res) {
+  const { folderId } = req.params;
+  const { folderName } = req.body;
+  await renameFolder(parseInt(folderId), folderName);
+  const currentFolder = await getFolderById(parseInt(folderId));
+  const parentFolder = await getFolderById(currentFolder.folderId);
+  if (parentFolder.name === "root") {
+    res.redirect("/root/folders");
+  } else {
+    res.redirect(`/root/folders/${currentFolder.folderId}`);
+  }
+}
+
 module.exports = {
   displayRootFolder,
   displayCurrentFolder,
   createFolder,
   deleteFolderPost,
+  renameFolderPost,
 };
