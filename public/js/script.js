@@ -6,6 +6,11 @@ const createFolderModalBtn = document.querySelector("#create-folder-modal-btn");
 const closeFolderModalBtn = document.querySelector("#close-folder-modal-btn");
 const uploadFileModal = document.querySelector("#upload-file-modal");
 const createFolderModal = document.querySelector("#create-folder-modal");
+const renameFolderBtn = document.querySelector("#rename-folder-btn");
+const renameFolderModal = document.querySelector("#rename-folder-modal");
+const closeFolderRenameModalBtn = document.querySelector(
+  "#close-folder-rename-modal-btn",
+);
 
 avatarBtn.addEventListener("click", () => {
   avatarMenu.classList.toggle("hidden");
@@ -29,6 +34,11 @@ uploadFileModalBtn.addEventListener("click", () => {
 createFolderModalBtn.addEventListener("click", () => {
   createFolderModal.showModal();
 });
+
+renameFolderBtn.addEventListener("click", () => {
+  renameFolderModal.showModal();
+});
+
 closeFileModalBtn.addEventListener("click", () => {
   uploadFileModal.classList.add("closing");
   setTimeout(() => {
@@ -42,5 +52,12 @@ closeFolderModalBtn.addEventListener("click", () => {
   setTimeout(() => {
     createFolderModal.close();
     createFolderModal.classList.remove("closing");
+  }, 500);
+});
+closeFolderRenameModalBtn.addEventListener("click", () => {
+  renameFolderModal.classList.add("closing");
+  setTimeout(() => {
+    renameFolderModal.close();
+    renameFolderModal.classList.remove("closing");
   }, 500);
 });
