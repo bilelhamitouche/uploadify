@@ -102,10 +102,28 @@ async function deleteFolder(folderId) {
   }
 }
 
+async function renameFolder(folderId, folderName) {
+  try {
+    await prisma.folder.update({
+      where: {
+        id: folderId,
+      },
+      data: {
+        name: folderName,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
 module.exports = {
   getRootFolder,
   getCurrentFolder,
   getFolderById,
   insertFolder,
   deleteFolder,
+  renameFolder,
 };
