@@ -1,4 +1,4 @@
-const { insertFile, deleteFile } = require("../db/files");
+const { insertFile, deleteFile, renameFile } = require("../db/files");
 const multer = require("multer");
 const { getFolderById } = require("../db/folders");
 const upload = multer({ dest: "uploads/" });
@@ -34,8 +34,19 @@ const uploadFile = [
 
 async function deleteFilePost(req, res) {
   const { fileId, folderId } = req.params;
-  console.log(req.params);
   await deleteFile(parseInt(fileId));
+  const parentFolder = await getFolderById(parseInt(folderId));
+  if (parentFolder.name === "root") {
+    res.redirect("/root/folders");
+  } else {
+    res.redirect(`/root/folders/${folderId}`);
+  }
+}
+
+async function renameFilePost(req, res) {
+  const { fileId, folderId } = req.params;
+  const { fileName } = req.body;
+  await renameFile(parseInt(fileId), fileName);
   const parentFolder = await getFolderById(parseInt(folderId));
   if (parentFolder.name === "root") {
     res.redirect("/root/folders");
@@ -47,4 +58,5 @@ async function deleteFilePost(req, res) {
 module.exports = {
   uploadFile,
   deleteFilePost,
+  renameFilePost,
 };

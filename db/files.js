@@ -51,7 +51,25 @@ async function deleteFile(fileId) {
   }
 }
 
+async function renameFile(fileId, fileName) {
+  try {
+    await prisma.file.update({
+      where: {
+        id: fileId,
+      },
+      data: {
+        name: fileName,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
 module.exports = {
   insertFile,
   deleteFile,
+  renameFile,
 };
