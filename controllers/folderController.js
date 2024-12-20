@@ -54,7 +54,12 @@ async function deleteFolderPost(req, res) {
     req.params.folderId,
   );
   await deleteFolder(currentFolder.id);
-  res.redirect(`/root/folders/${currentFolder.folderId}`);
+  const parentFolder = await getFolderById(currentFolder.folderId);
+  if (parentFolder.name === "root") {
+    res.redirect("/root/folders");
+  } else {
+    res.redirect(`/root/folders/${currentFolder.folderId}`);
+  }
 }
 
 module.exports = {

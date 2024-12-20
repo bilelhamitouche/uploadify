@@ -34,8 +34,14 @@ const uploadFile = [
 
 async function deleteFilePost(req, res) {
   const { fileId, folderId } = req.params;
+  console.log(req.params);
   await deleteFile(parseInt(fileId));
-  res.redirect(`/root/folders/${folderId}`);
+  const parentFolder = await getFolderById(parseInt(folderId));
+  if (parentFolder.name === "root") {
+    res.redirect("/root/folders");
+  } else {
+    res.redirect(`/root/folders/${folderId}`);
+  }
 }
 
 module.exports = {
